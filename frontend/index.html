@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Победа глазами молодых</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- стили -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/photoservice.css">
+    <!-- иконка -->
+    <link rel="shortcut icon" href="/images/unnamed.png" type="image/x-icon">
+  </head>
+  <body class="bg-light">
+
+    <!-- Уведомления -->
+    <div class="notify"></div>
+    
+    <!-- шапка -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow" style="display: none;">
+        <div class="container">
+            <a class="navbar-brand mr-3" href="javascript:void(0);" onclick="helper.page('photos');"><img src="/images/unnamed.png" width="30" style="filter: brightness(10);" height="30" alt="logotype"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item mr-3"><a class="nav-link" href="javascript:void(0);" onclick="helper.page('photos');">Мои фотографии</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="helper.page('users');">Пользователи</a></li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);" onclick="client.logout();">Выйти из учетной записи</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- контент -->
+    <div class="app mb-5">
+        <!-- страницы -->
+        <div class="pages">
+            <!-- авторизация -->
+            <div class="page page-auth" style="display: none;">
+
+                <div class="jumbotron text-center rounded-0 shadow" style="height: 300px; background: url(/images/unnamed.jpg) #d93b20;background-repeat: no-repeat;background-position: center;">
+                </div>
+
+                <!-- сетка -->
+                <div class="container">
+                    
+                    <div class="row">
+
+                        <div class="col-lg">
+
+                            <!-- Форма авторизации -->
+                            <form class="bg-white rounded shadow form-login action">
+
+                                <div class="authbg"><div class="title">Авторизация</div></div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Номер телефона</label>
+                                    <input type="text" class="form-control" name="phone" placeholder="Номер телефона">
+                                </div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Пароль</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Пароль">
+                                </div>
+
+                                <button type="button" onclick="client.login();" class="btn btn-success ml-4 mb-4 mt-0">Войти в аккаунт</button>
+
+                            </form>
+
+                        </div>
+    
+                        <div class="col-lg">
+
+                            <!-- Форма регистрации -->
+                            <form class="form-signup rounded shadow action">
+
+                                <div class="regbg"><div class="title">Новый аккаунт</div></div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Имя</label>
+                                    <input type="text" class="form-control" name="first_name" placeholder="Имя">
+                                </div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Фамилия</label>
+                                    <input type="text" class="form-control" name="surname" placeholder="Фамилия">
+                                </div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Номер телефона</label>
+                                    <input type="text" class="form-control" name="phone" placeholder="Номер телефона">
+                                </div>
+
+                                <div class="form-group pl-4 pr-4">
+                                    <label>Пароль</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Пароль">
+                                </div>
+
+                                <button type="button" onclick="client.signup();" class="btn btn-success ml-4 mb-4 mt-0">Создать аккаунт</button>
+
+                            </form>
+
+                        </div>
+    
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- мои фотографии -->
+            <div class="page page-photos" style="display: none;">
+                <!-- заголовок -->
+                <div class="jumbotron text-center shadow">
+                    <h1 class="display-4">Мои фотографии</h1>
+                    <p class="lead">Фотографии загруженные на конкурс "Победа глазами молодых"</p>
+                </div>
+                <!-- сетка -->
+                <div class="container">
+                    <!-- сетка -->
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="row" id="photos_model_view"><!-- модель фотографии --></div>
+                        </div>
+                        <div class="col-lg-3">
+                            <button class="btn btn-block btn-success shadow-sm" data-toggle="modal" data-target="#photo_upload">Загрузить фотографию</button>
+                            <!-- ФОРМА -->
+                            <div class="bg-white p-4 shadow-sm rounded mt-4 photos_group" style="display: none;">
+                                <h6 class="card-title text-center">Выбрано <span id="photos_group_count"></span> фотографии</h6>
+                                <button class="btn btn-block btn-success" onclick="helper.page('users');">Поделиться</button>
+                                <button class="btn btn-block btn-danger" onclick="client.groupDelete();">Удалить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- пользователи -->
+            <div class="page page-users" style="display: none;">
+                
+                <div class="jumbotron shadow">
+                    <h1 class="display-4 text-center">Поиск пользователей</h1>
+                    <div class="container mt-4">
+                        <div class="form-group mb-0">
+                            <label>Укажите данные пользователя</label>
+                            <input type="text" class="form-control" id="user_search_value" placeholder="Имя">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- сетка -->
+                <div class="container">
+                    <div class="row" id="user_search_view"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Загрузка фотографий -->
+    <div class="modal fade" id="photo_upload" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Загрузить фотографию</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- ФОРМА -->
+                    <label class="text-center">Для загрузки фотографии выберите или переместите фотографию в это окно.</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Выбрать файл</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Редактирование фотографии -->
+    <div class="modal fade" id="photo_edit" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Редактирование фотографии</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body"><!-- ФОРМА --></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Доступные фотографии -->
+    <div class="modal fade" id="user_photos" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Доступные фотографии</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- скрипты -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/requests.js"></script>
+  </body>
+</html>

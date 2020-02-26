@@ -1,0 +1,141 @@
+@font-face {
+    font-family: Oswald;
+    src: url("/fonts/Oswald-VariableFont_wght.ttf");
+}
+
+body {
+    overflow-y: scroll;
+    font-family: Oswald, sans-serif;
+}
+
+/* Уведомления */
+.notify {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    z-index: 99999;
+}
+
+/* Анимация, при наведении на фото */
+#photos_model_view .card img:hover {
+    cursor: pointer;
+    transition: 300ms ease;
+    transform: scale(1.2)
+}
+
+/* Выделение активной фотографии*/
+.activephoto {
+    transition: 300ms ease;
+    box-shadow: 12px 14px 11px rgba(0, 123, 255, 0.32) !important;
+    border: 2px solid #007bff !important;
+}
+
+/* Фокус поля для ввода */
+.page-auth .action input:focus {
+    transition: 300ms ease;
+    transform: scale(1.2);
+}
+
+/* Анимация кнопок и заголовков */
+button:hover, .page-auth .title:hover, .display-4:hover {
+    transition: 300ms ease;
+    transform: scale(1.2);
+}
+
+/* Анимация блока заголовка */
+.page-auth .jumbotron:hover {
+    transition: 300ms ease;
+    margin-top: -20px;
+}
+
+/* Блок авторизации */
+.authbg {
+    background: url("/images/1ed3e98bf9e1bdf8ce89a346b8228d08771e3d5b.jpg");
+    height: 200px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Заголовок авторизации */
+.authbg .title {
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.36);
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(3px);
+    bottom: 0;
+    top: 0;
+    line-height: 4.5;
+}
+
+/* Блок регистрации */
+.regbg {
+    background: url("/images/tn_197409_125153a7bb39.jpg");
+    height: 200px;
+    background-size: cover;
+    position: relative;
+    background-position: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* заголовок регистрации */
+.regbg .title {
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.36);
+    background: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(3px);
+    bottom: 0;
+    top: 0;
+    line-height: 4.5;
+}
+
+/* Уведомления */
+.alert {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.13), inset 0px 8px 10px rgba(0, 0, 0, 0.13);
+    filter: grayscale(0.3);
+    transition: 600ms ease;
+}
+
+/* Оформление заголовков */
+.page-photos .jumbotron, .page-users .jumbotron {
+    background: linear-gradient(45deg, #dc3545 20%, white 20%);
+    border-radius: 0px !important;
+    overflow: hidden;
+}
+
+/* Анимация кнопки удаления */
+.btn-danger {
+    animation: hover 1s infinite;
+}
+
+@keyframes hover {
+    from {
+        background: #a72935;
+    }
+    to {
+        background: #dc3545;
+    }
+}
+
+.modal-open .modal {
+    backdrop-filter: blur(4px);
+}
