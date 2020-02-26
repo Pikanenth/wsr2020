@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Рик и Морти</title>
+    <!-- стили -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <!-- звуки -->
+    <audio loop="true" id="song" src="/music/RickAndMortyRemixPhx.m4a" type="audio/m4a">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+
+    <audio id="song_kill" src="/music/kill.mp3">
+        Your browser does not support the
+        <code>audio</code> element.
+    </audio>
+
+    <div class="app">
+        <!-- страницы -->
+        <div class="pages">
+            <!-- экран приветствия -->
+            <div class="page welcome-page" style="display: none;">
+                <div class="sections flex">
+                    <!-- Возрастная категрия -->
+                    <div class="yo">14+</div>
+                    <!-- секции -->
+                    <div class="section-1">
+                        <!-- инструкция -->
+                        <div class="sect instruction" style="opacity: 0;">
+                            <div class="title">Инструкция к игре</div>
+                            <ol>
+                                <li>Игрок может передвигаться с помощью клавиш английской раскладки: «А» - налево и «D» - направо. Для прыжка используется клавиша «W», а для ухода под землю - клавиша «S». </li>
+                                <li>В начале игры случайным образом генерируются возвышенности (не менее 10)</li>
+                                <li>По мере прохождения игры на игрока нападают злые Рики</li>
+                                <li>Игра заканчивается, как только игрок доходит до конца карты (пограничной башни) и достигает правого местоположения или происходит смерть персонажа, а таймер останавливается.</li>
+                                <li>За каждый съеденный пончик дается 10 HP.</li>
+                                <li>За каждое соприкосновение со злым Риком отбирается 20 HP. Если контакт длится больше 2-х секунд, то 20 HP списывается за каждую полную секунду контакта.</li>
+                            </ol>
+                        </div>
+                        <!-- выбор персонажа -->
+                        <div class="sect main show">
+                            <div class="title">Выберите персонажа</div>
+                            <div class="portal"></div>
+                            <!-- персонажи -->
+                            <div class="characters">
+                                <div class="character character-rick active" onclick="game.character('rick')"></div>
+                                <div class="character character-morty" onclick="game.character('morty')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Информация об игре -->
+                    <div class="section-2">
+                        <div class="bg"></div>
+                        <div class="game-name">Рик и Морти</div>
+                        <!-- Поле ввода -->
+                        <div class="form">
+                            <label>Имя игрока</label>
+                            <input type="text" placeholder="Имя игрока">
+                            <button disabled onclick="game.preparing()">Начать</button>
+                        </div>
+                        <!-- Кнопка инструкции -->
+                        <div class="morty"></div>
+                        <button class="instruction" onclick="helper.instruction();">Инструкция</button>
+                    </div>
+                </div>
+            </div>
+            <!-- экран с роликом -->
+            <div class="page preroll-page" style="display: none;">
+                <video loop="true">
+                    <source src="/movie/preroll.mp4" type="video/mp4">
+                    Sorry, your browser doesn't support embedded videos.
+                </video>                
+            </div>
+            <!-- Игровой экран -->
+            <div class="page game-page" style="display: none;">
+                <!-- Статистика -->
+                <div class="stats">
+                    <div class="username"><span></span><name>character</name></div>
+                    <div class="timer"><timer>00:00</timer></div>
+                    <div class="heat"><span></span><heat>0</heat></div>
+                    <div class="hp"><span></span><hp>100</hp></div>
+                </div>
+                <!-- Игровое поле -->
+                <div class="gamebox"></div>
+                <!-- иконка -->
+                <div class="sound active" onclick="helper.sound();"></div>
+                <!-- пауза -->
+                <div class="pause" style="display: none;">
+                    <div class="title">Пауза</div>
+                    <div class="flex">
+                        <button class="first" onclick="game.pause();">Продолжить</button>
+                        <button class="two" onclick="game.start();">Вернуться к началу игры</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Страница с результатами -->
+            <div class="page finish-page" style="display: none;">
+                <!-- секции -->
+                <div class="sections flex">
+                    <div class="section-1">
+                        <div class="title">Результаты</div>
+                        <!-- Таблица -->
+                        <table>
+                            <tr>
+                                <td>Место</td>
+                                <td>Игрок</td>
+                                <td>Кол-во очков</td>
+                            </tr>
+
+                            <tr>
+                                <td>11</td>
+                                <td>Павел</td>
+                                <td>32</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="section-2">
+                        <div class="bg"></div>
+                        <div class="game-name">Рик и Морти</div>
+                        <button onclick="game.start();">Начать заного</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- скрипты -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/game.js"></script>
+</body>
+</html>

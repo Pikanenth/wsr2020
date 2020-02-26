@@ -1,0 +1,632 @@
+/* Clean CSS */
+* {
+    border: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input {
+    border: none;
+    outline: none;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: url("../../images/PlanetI.jpg") no-repeat;
+    background-size: cover;
+}
+
+.flex {
+    display: flex;
+}
+
+/* показ скрытых блоков */
+.show {
+    display: block !important;
+}
+
+/* Страницы */
+.pages .page {
+    width: 800px;
+    height: 600px;
+    margin: auto;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    right: 0;
+}
+
+.app {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+}
+
+ol {
+    padding: 40px;
+    line-height: 40px;
+    font-size: 22px;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+    overflow-y: scroll;
+    height: 536px;
+}
+
+/* для ролика */
+video {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Секции страниц */
+.welcome-page .section-1 .sect {
+    display: none;
+}
+
+/* Сетка */
+.welcome-page .section-2 {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.26);
+    position: relative;
+    padding-top: 150px;
+}
+
+.welcome-page .section-1 {
+    width: calc(100% - 250px);
+    position: relative;
+}
+
+.welcome-page {
+    background: rgba(0, 0, 0, 0.26);
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.57);
+}
+
+.welcome-page .sections {
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* заголовки */
+.welcome-page .section-1 .title, .welcome-page .section-2 .game-name {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+/* инструкция */
+.welcome-page .section-2 .instruction {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.06), #4c924a);
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+/* фон игры */
+.welcome-page .section-2 .bg {
+    background: url(/images/gamebg.jpg) no-repeat red;
+    width: 200px;
+    box-shadow: 6px 6px 12px rgba(254, 251, 196, 0.39);
+    height: 280px;
+    display: block;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+    position: absolute;
+    top: -130px;
+    left: 20px;
+}
+
+/* форма */
+.welcome-page .section-2 .form {
+    display: block;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+.welcome-page .section-2 .form label {
+    color: white;
+}
+
+.welcome-page .section-2 .form label, .welcome-page .section-2 .form input, .welcome-page .section-2 .form button {
+    display: block;
+}
+
+.welcome-page .section-2 .form input, .welcome-page .section-2 .form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 300ms ease;
+}
+
+/* выбор персонажа */
+.welcome-page .section-1 .characters {
+    display: flex;
+    width: 550px;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.welcome-page .section-1 .character {
+    width: 215px;
+    height: 340px;
+    transition: 500ms ease;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+.welcome-page .section-1 .character-rick {
+    background: url("/images/rick.png") no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+}
+
+.welcome-page .section-1 .character-morty {
+    background: url("/images/morty.png") no-repeat;
+    background-size: contain;
+    transform: rotateY(180deg);
+}
+
+.welcome-page .section-1 .character.active {
+    filter: drop-shadow(13px 15px 13px #fefbc4);
+}
+
+.welcome-page .yo {
+    position: fixed;
+    left: 40px;
+    top: 40px;
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.31);
+}
+
+.welcome-page .section-1 .character-rick:hover {
+    transform: scale(1.1);
+}
+
+.welcome-page .section-1 .character-morty:hover {
+    transform: scale(1.1) rotateY(180deg);
+}
+
+.section-2 .bg:hover {
+    transform: scale(1.1);
+    transition: 500ms ease;
+    animation: rounded 2s;
+}
+
+.welcome-page .section-2 .instruction:hover {
+    padding: 20px;
+    transition: 500ms ease;
+}
+
+li:hover {
+    transition: 600ms ease;
+    transform: scale(1.17);
+}
+
+.welcome-page .section-2 .form button:disabled {
+    background: white;
+    color: red;
+}
+
+.welcome-page .section-2 .form button {
+    background: #468b52;
+    color: white;
+    box-shadow: 2px 2px 13px rgba(0, 0, 0, 0.38);
+}
+
+.welcome-page .section-2 .form input:focus {
+    transition: 300ms ease;
+    transform: scale(1.3);
+}
+
+.welcome-page .section-1 .character.active {
+    animation: rounded 2s;
+}
+
+.welcome-page .yo:hover {
+    font-size: 80px;
+    transition: 300ms ease;
+}
+
+.welcome-page .section-2 .instruction {
+    animation: hoverbg 1s infinite;
+}
+
+@keyframes hoverbg {
+    from {
+        background: #538a32;
+    }
+    to {
+        background: #72be43;
+    }
+}
+
+li:hover {
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 111;
+    padding: 15px;
+}
+
+.welcome-page .section-2 .morty {
+    background: url(/images/dance.gif);
+    width: 151px;
+    height: 192px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: block;
+    margin: auto;
+    filter: drop-shadow(2px 4px 6px black);
+}
+
+/* страница с роликом */
+.preroll-page {
+    display: block;
+    background: rgba(0, 0, 0, 0.26);
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.26));
+}
+
+/* игровое поле */
+.game-page {
+    background: url(/images/game.png) no-repeat;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.57);
+}
+
+/* Статистика */
+.stats {
+    background: rgba(0, 0, 0, 0.18);
+    height: 60px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 61px;
+}
+
+.stats .timer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 15px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+.stats .username {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+.stats .username span {
+    background: url(/images/heal/heal1.png) no-repeat;
+    background-size: cover;
+}
+
+.stats span {
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    background: red;
+    display: inline-block;
+    margin-right: 10px;
+    animation: rounded 1s infinite;
+}
+
+.stats .heat {
+    position: absolute;
+    right: 50px;
+    top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+.stats .heat span {
+    background: url("/images/heal/donutheal.png") no-repeat;
+    background-size: cover;
+}
+
+.stats .hp {
+    top: 15px;
+    position: absolute;
+    right: 170px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+.stats .hp span {
+    background: url("/images/heal/MedicFlask.png") no-repeat;
+    background-size: cover;
+}
+
+/* Анимация иконок */
+@keyframes rounded {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.gamebox {
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    width: 5000px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Игрок */
+.gamebox .character {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 43px;
+    height: 60px;
+    animation: hero .6s steps(4) infinite;
+    z-index: 11;
+}
+
+.gamebox .character-rick {
+    background: url(/images/sprites/rick_idle.png);
+}
+
+.gamebox .character-morty {
+    background: url(/images/sprites/morty_idle.png);
+}
+
+.gamebox .character-rick.run {
+    background: url(/images/sprites/rick_run.png);
+}
+
+.gamebox .character-morty.run {
+    background: url(/images/sprites/morty_run.png);
+}
+
+/* Анимация героя */
+@keyframes hero {
+    from {
+        background-position-x: 0px;
+    }
+
+    to {
+        background-position-x: 170px;
+    }
+}
+
+/* Полигоны */
+.gamebox .polygon {
+    background: url(/images/polygon.png) no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.gamebox .polygon span {
+    width: 45px;
+    height: 45px;
+    background: url(/images/heal/donutheal.png) no-repeat;
+    display: block;
+    margin: auto;
+    margin-top: -29px;
+    background-size: cover;
+    animation: rounded 1s infinite;
+}
+
+/* Злые рики */
+.gamebox .evil {
+    background: url(/images/sprites/evil.png) rgba(255, 255, 255, 0);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 43px;
+    height: 60px;
+    left: 66px;
+    z-index: 11;
+    animation: hero 1s steps(4) infinite;
+}
+
+/* Звук */
+.sound {
+    height: 40px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    background: url("/images/icons/sound_off.png");
+    background-size: cover;
+    cursor: pointer;
+}
+
+.sound.active {
+    background: url(/images/icons/sound_on.png);
+    background-size: cover;
+}
+
+/* Пауза */
+.pause {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    height: 180px;
+    background: linear-gradient(45deg, rgba(0, 147, 129, 0.76), hsla(154, 100%, 35%, 0.52));
+    margin: auto;
+    color: white;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 2px 2px 11px black;
+}
+
+.pause .title {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px black;
+}
+
+.pause button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+    box-shadow: 2px 2px 13px hsla(0, 0%, 0%, 0.42);
+}
+
+.finish-page {
+    background: rgba(0, 0, 0, 0.18);
+}
+
+.finish-page .section-2 {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.26);
+    position: relative;
+    padding-top: 150px;
+}
+
+.finish-page .section-1 {
+    width: calc(100% - 250px);
+    position: relative;
+}
+
+.finish-page .sections {
+    height: 100%;
+}
+
+.finish-page .section-2 .bg {
+    background: url(/images/gamebg.jpg) no-repeat red;
+    width: 200px;
+    box-shadow: 6px 6px 12px rgba(254, 251, 196, 0.39);
+    height: 280px;
+    display: block;
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px;
+    position: absolute;
+    top: -130px;
+    left: 20px;
+}
+
+/* Страница с результатами - заголовки */
+.finish-page .section-1 .title, .finish-page .section-2 .game-name {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+}
+
+.finish-page .section-2 button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    background: #468b52;
+    color: white;
+    animation: hoverbg 1s infinite;
+}
+
+/* table */
+
+td {
+    width: 200px;
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.59);
+    text-align: center;
+    line-height: 45px;
+}
+
+table {
+    margin-top: 20px;
+}
+
+tr:hover {
+    transition: 300ms ease;
+    background: rgba(0, 0, 0, 0.17);
+    cursor: pointer;
+}
+
+tr:hover td {
+    font-size: 25px;
+}
+
+.pause button:hover {
+    transition: 300ms ease;
+    transform: scale(1.1);
+}
+
+.welcome-page .section-1 .portal {
+    background: url(/images/portal.png);
+    background-size: cover;
+    width: 300px;
+    height: 310px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    animation: rounded 2s infinite;
+}
