@@ -1,0 +1,1707 @@
+/*
+Theme Name: Dosislite
+Theme URI: https://theme-xoda.com/downloads/dosislite-free-wordpress-blog-theme/
+Author: Theme-Xoda
+Author URI: http://theme-xoda.com/
+Description: A Responsive WordPress Theme for Bloggers. FREE SUPPORT: http://theme-xoda.net and LIVE DEMO: http://dosislite.theme-xoda.net
+Version: 1.2.5
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: dosislite
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready,wide-blocks
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Dosislite is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# STYLE GENERAL
+# WordPress CORE
+# HEADER
+#MAINCONTAINER
+	#Feature Post 
+	#Blog
+	#Widget
+#FOOTER
+#RESPONSIVE
+--------------------------------------------------------------*/
+
+html {
+	line-height: 1.15; /* 1 */
+	-webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* -----------------------
+		STYLE GENERAL
+-------------------------- */
+body{
+	font-family: 'Work Sans';
+	font-size: 16px;
+	color: #111;
+	line-height: 1.85;
+	background: #f5f5f5;
+}
+.main-wrapper-boxed{
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #fff;
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+	overflow: hidden;
+}
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Oswald';
+    color: #111;
+	font-weight: 500;
+    line-height: 1.3em;
+    margin-bottom: 30px;
+}
+h1{
+	font-size: 36px;
+}
+h2{
+	font-size: 30px;
+}
+h3{
+	font-size: 24px;
+}
+h4{
+	font-size: 22px;
+}
+h5{
+	font-size: 20px;
+}
+h6{
+	font-size: 18px;
+}
+a{
+	color: #E66625;
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+a:hover, a:focus{
+	text-decoration: none;
+	color: #111;
+}
+
+p{margin-bottom: 25px;}
+cite {
+	font-size: 14px;
+	color: #999;
+}
+img{
+	max-width: 100%;
+	height: auto;
+}
+address {
+	font-style: italic;
+}
+ul,ol{margin: 0;}
+ul ul, ol ol, ul ol, ol ul{padding-left: 30px;}
+.dosislite-button, button, .button, input[type="submit"] {
+	text-align: center;
+	padding: 13px 25px;
+	background: #E66625;
+	font-weight: 500;
+	color: #fff;
+	display: inline-block;
+	border: none;
+	text-transform: uppercase;
+	transition: all 0.3s ease 0s;
+	font-size: 12px;
+	letter-spacing: 2px;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.dosislite-button:hover, button:hover, .button:hover, input[type="submit"]:hover,
+.dosislite-button:focus, button:focus, .button:focus, input[type="submit"]:focus{
+	background: #111;
+	color: #fff;
+}
+input[type="text"], input[type="email"], 
+input[type="search"], input[type="password"],
+input[type="tel"],textarea{
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 12px 18px;
+	line-height: 24px;
+	color: #999;
+	font-size: 15px;
+}
+select{
+	border: 1px solid #ddd;
+	padding: 12px 18px;
+	line-height: 24px;
+	color: #999;
+	width: 100%;
+	font-size: 15px;
+	 -webkit-appearance: none; 
+   -moz-appearance: none;
+   appearance: none;
+	background-color: transparent;
+   background-image: url(assets/images/select.png);
+   background-repeat: no-repeat;
+   background-position: 95% center;
+}
+textarea{min-height: 150px;}
+::-webkit-input-placeholder {
+   color: inherit;
+   opacity: 1;
+}
+:-moz-placeholder {
+   color: inherit;
+   opacity: 1;  
+}
+::-moz-placeholder {
+   color: inherit;
+   opacity: 1;  
+}
+:-ms-input-placeholder {  
+   color: inherit;
+   opacity: 1;  
+}
+iframe{
+	max-width: 100%
+}
+abbr[data-original-title], abbr[title] {
+	cursor: help;
+	border-bottom: none;
+}
+/* Select chosen */
+.chosen-container{
+  width: 100%!important;
+}
+.chosen-container-single .chosen-single{
+  box-shadow: none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  background: none;
+  border-color: #ddd;
+  border-radius: 3px;
+  height: 40px;
+  padding: 7px 15px;
+  color: #888;
+}
+.chosen-container-active.chosen-with-drop .chosen-single{
+  background: none;
+  border-color: #ddd;
+  box-shadow: none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -o-border-radius: 0;
+}
+.chosen-container-single .chosen-single div{width: 25px}
+.chosen-container-single .chosen-single div b{
+  background: none!important;
+}
+.chosen-container-single .chosen-single div b:after{
+  content: "\f0d7";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 14px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+.chosen-container .chosen-drop{
+  box-shadow: none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  background: #fff;
+  border-color: #ddd;
+  border-radius: 0;
+}
+.chosen-container-single .chosen-search input[type="text"]{border-color: #ddd;}
+.chosen-container .chosen-results li{line-height: 24px;font-family: inherit;}
+.chosen-container .chosen-results li.highlighted{
+  background-image: none;
+  background-color: #E66625;
+}
+/* Owl */
+.owl-carousel .owl-nav button.owl-prev, 
+.owl-carousel .owl-nav button.owl-next{
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	font-size: 36px;
+	line-height: 45px;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	border-radius: 50%;
+	text-align: center;
+	background: #fff;
+	font-size: 16px;
+	color: #111;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.owl-carousel:hover .owl-nav button.owl-prev, 
+.owl-carousel:hover .owl-nav button.owl-next{
+	opacity: 1;
+}
+.owl-carousel .owl-nav button.owl-prev{left: 30px;}
+.owl-carousel .owl-nav button.owl-next{right: 30px;}
+.owl-carousel .owl-dots{
+	text-align: center;
+	margin-top: 15px;
+	line-height: normal;
+}
+.owl-carousel .owl-dots .owl-dot{
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background: #aaa;
+	border-radius: 50%;
+	margin: 0 4px;
+}
+.owl-carousel .owl-dots .owl-dot.active{
+	background: #111;
+}
+/*-------------------------------*/
+/*          WordPress CORE
+/*-------------------------------*/
+.sticky {
+	position: relative;
+}
+.sticky .post-title:before{
+	content: "\f08d";
+	font-family: "Font Awesome 5 Free";
+	color: #E66625;
+	font-size: 16px;
+	display: inline-block;
+	margin-right: 10px;
+	font-weight: 900;
+}
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #E66625;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 111100; /* Above WP toolbar. */
+}
+
+.gallery-caption {margin-top: 10px;margin-bottom: 0}
+
+.bypostauthor{position: relative;}
+
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+.aligncenter, div.aligncenter {
+	display: block;
+	text-align: center;
+	margin: 5px auto;
+}
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+.wp-caption {
+    max-width: 100%;
+    text-align: center;
+}
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+    width: auto;
+}
+.wp-caption p.wp-caption-text {
+  font-size: inherit;
+  font-style:italic;
+  color:inherit;
+  line-height: 17px;
+  margin: 8px 0 0;
+}
+table {
+	border-collapse: collapse;
+	margin-bottom: 1em;
+    width: 100%;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
+}
+td, th {
+    padding: 10px;
+}
+.widget_calendar td, .widget_calendar th {
+    padding: 5px;
+}
+.fluid-width-video-wrapper {
+	margin-bottom: 12px;
+}
+label{font-weight: normal;margin-bottom: 0;}
+dt, dd {
+  line-height: inherit;
+}
+dt {
+    font-weight: bold;
+    color: #111;
+}
+dd{
+	margin: 0 15px 15px;
+}
+figure{margin: 0}
+code {
+	color: #111;
+}
+kbd {
+	background-color: #111;
+    color: #fff;
+    border-radius: 0;
+}
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	margin-bottom: 25px;
+}
+.wp-block-quote p{margin-bottom: 10px;}
+blockquote, .wp-block-quote.is-large {
+	color: #999;
+	padding: 0;
+	font-size: 18px;
+	line-height: 30px;
+	padding-left: 45px;
+	position: relative;
+}
+.wp-block-quote.is-large, .wp-block-quote.is-style-large{
+	padding-left: 45px;
+}
+.wp-block-quote:before, blockquote:before{
+	content: "\f10d";
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	position: absolute;
+	left: 0;
+	top: 4px;
+	color: #ccc;
+	font-size: 25px;
+}
+.wp-block-quote cite{
+	margin-top: 0;
+	color: #111;
+}
+.wp-block-quote cite:before{
+	content: "";
+	width: 20px;
+	height: 1px;
+	display: inline-block;
+	background-color: #111;
+	margin-right: 15px;
+}
+.wp-block-quote.is-large p, .wp-block-quote.is-large cite {
+	font-size: 20px;
+    font-style: normal;
+}
+.wp-block-pullquote {
+	border-top: 4px solid #ddd;
+	border-bottom: 4px solid #ddd;
+	color: #111;
+	padding: 2em 0;
+	margin: 0 0 3em;
+	text-align: center;
+}
+.wp-block-pullquote blockquote {
+	border: none;
+	margin: 1em;
+}
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: 100px;
+}
+.wp-block-button__link{
+	background: #111;
+}
+.wp-block-embed.alignfull iframe{width: 100%}
+.post-content ul, .post-content ol,
+.comment-text ul, .comment-text ol{margin-bottom: 20px;}
+.post-content ul li, .post-content ol li,
+.comment-text ul li, .comment-text ol li {
+	padding: 5px 0;
+}
+.post-content ul ul, .post-content ol ol, .post-content ul ol, .post-content ol ul,
+.comment-text ul ul, .comment-text ol ol, .comment-text ul ol, .comment-text ol ul{margin-bottom: 0}
+.post-page-numbers{
+	padding: 0 10px;
+}
+
+
+.wp-block-archives,.wp-block-categories{margin-bottom: 30px;}
+.wp-block-archives li, .wp-block-categories li{
+	list-style: none;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+.wp-block-archives li:last-child, .wp-block-categories li:last-child{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.wp-block-archives li a,.wp-block-categories li a{
+	color: inherit;
+}
+.wp-block-archives li a:hover, .wp-block-categories li a:hover{color: #E66625}
+.wp-block-archives ul.children ,.wp-block-categories ul.children{
+	border-top: 1px solid #eee;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+.wp-block-latest-posts > li > a{
+	font-family: 'Oswald';
+	color: #111;
+	font-weight: 500;
+	line-height: 1.3em;
+	font-size: 15px;
+}
+.page-nav{
+	clear: both;
+}
+.page-excerpt:after,
+.page-excerpt:before{
+	content: "";
+	display: table;
+	clear: both;
+}
+/*--------------------------
+		HEADER
+---------------------------*/
+.dosislite-logo{
+	padding: 50px 0;
+	text-align: center;
+}
+.dosislite-logo h1,.dosislite-logo h2{margin: 0;}
+.dosislite-logo .logo-img{display: block;}
+.dosislite-logo img{
+	max-width: 300px;
+}
+.logo-img + .site-title{
+	margin-top: 15px;
+}
+.site-title{margin-bottom: 0}
+.site-title a{color: inherit;}
+.tagline{
+	color: #999;
+	display: inline-block;
+	position: relative;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	vertical-align: middle;
+	margin-top: 10px;
+	font-weight: normal;
+}
+.tagline:after,
+.tagline:before{
+	content: "";
+	width: 45px;
+	border-bottom: 1px solid;
+	vertical-align: middle;
+	display: inline-block;
+}
+.tagline:before{margin-right: 25px;}
+.tagline:after{margin-left: 25px;}
+.header-content{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: center;
+	-webkit-align-items: center;
+	border-top: 1px solid #111;
+	border-bottom: 1px solid #111;
+	position: relative;
+	justify-content: space-between;
+}
+.header-content .navbar-col{
+    display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.header-content .navbar-main{
+	text-align: center;
+}
+.header-content.no_has_navbar .navbar-main{
+	text-align: left;
+}
+.header-content.no_has_navbar .navbar-touch{
+    display:none!important;
+}
+.header-content.no_has_navbar .navbar-left{
+    display: none;
+}
+.navbar-touch{display: block;line-height: 0;}
+.navbar-toggle{
+	width: 30px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: center;
+	-webkit-align-items: center;
+}
+.navbar-toggle span{
+	display: block;
+	height: 2px;
+	width: 24px;
+	margin: 2px 0;
+	background: #111;
+}
+.navbar-touch .navbar-toggle{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	position: relative;
+}
+.navbar-touch .navbar-toggle span{
+	margin-top: 11px;
+	margin-bottom: 0px;
+}
+.navbar-touch .navbar-toggle span:after{
+	content: "";
+	display: inline-block;
+	height: 24px;
+	width: 2px;
+	display: block;
+	background: #111;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+.navbar-main ul,
+.main-menu-vertical div.dosislite-main-menu > ul{padding: 0}
+.main-menu-horizontal ul.dosislite-main-menu > li,
+.main-menu-horizontal div.dosislite-main-menu > ul > li{
+	display: inline-block;
+	margin: 0 15px;
+	margin-bottom: -1px;
+}
+.main-menu-horizontal ul.dosislite-main-menu > li:last-child,
+.main-menu-horizontal div.dosislite-main-menu > ul > li:last-child{margin-right: 0}
+.main-menu-horizontal ul.dosislite-main-menu > li:first-child,
+.main-menu-horizontal div.dosislite-main-menu > ul > li:first-child{margin-left: 0}
+.main-menu-horizontal ul.dosislite-main-menu > li > a,
+.main-menu-horizontal div.dosislite-main-menu > ul > li >a{
+	line-height: 58px;
+    font-weight: 500;
+    display: inline-block;
+}
+.dosislite-main-menu li{
+	position: relative;
+	list-style: none;
+    font-size: 14px;
+}
+.main-menu-horizontal ul.dosislite-main-menu > li > a,
+.main-menu-horizontal div.dosislite-main-menu > ul > li > a,
+.main-menu-vertical .dosislite-main-menu li{
+	font-family: Oswald;	
+}
+.main-menu-vertical .dosislite-main-menu ul.children,
+.main-menu-vertical .dosislite-main-menu ul.sub-menu{
+	display: none;
+}
+.main-menu-vertical div.dosislite-main-menu ul ul li,
+.main-menu-vertical .dosislite-main-menu  .sub-menu li{font-size: 13px;}
+.dosislite-main-menu li a{
+	color: #111;
+	text-transform: uppercase;
+}
+.dosislite-main-menu li a:hover,
+.dosislite-main-menu li a:focus{
+	color: #E66625;
+}
+.dosislite-main-menu li.menu-imp{
+	background: #ef4848;
+	padding: 0 6px;
+}
+.dosislite-main-menu li.menu-imp a,
+.dosislite-main-menu li.menu-imp a:hover{color: #fff;}
+
+.main-menu-horizontal .dosislite-main-menu .sub-menu,
+.main-menu-horizontal div.dosislite-main-menu ul ul{
+	position: absolute;
+	left: 0px;
+	top: 100%;
+	min-width: 200px;
+	background: #282828;
+	z-index: 5;
+	min-width: 250px;
+	text-align: left;
+	margin-top: 1px;
+	padding: 20px 0;
+	opacity: 0;
+	-webkit-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	visibility: hidden;
+}
+.main-menu-horizontal .dosislite-main-menu .is-hover > .sub-menu,
+.main-menu-horizontal div.dosislite-main-menu ul .is-hover > ul,
+.main-menu-horizontal .dosislite-main-menu .is-focus > .sub-menu,
+.main-menu-horizontal div.dosislite-main-menu ul .is-focus > ul,
+.main-menu-horizontal .dosislite-main-menu li:focus > .sub-menu{
+	opacity: 1;
+	visibility: visible;
+}
+
+
+.main-menu-horizontal .dosislite-main-menu .sub-menu li a,
+.main-menu-horizontal div.dosislite-main-menu ul ul li a{
+	color: #a0a0a0;
+}
+.main-menu-horizontal .dosislite-main-menu .sub-menu li a:hover,
+.main-menu-horizontal div.dosislite-main-menu ul ul li a:hover{
+	color: #fff;
+}
+.main-menu-horizontal .dosislite-main-menu .sub-menu .sub-menu,
+.main-menu-horizontal div.dosislite-main-menu ul ul ul{
+	left: 100%;
+	top: -20px;
+}
+.dosislite-main-menu .sub-menu li a,
+div.dosislite-main-menu ul ul li a{
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: nowrap;
+	-webkit-flex-wrap: nowrap;
+	justify-content: space-between;
+	margin: 0 20px;
+	line-height: 35px;
+	text-transform: none;
+}
+.dosislite-main-menu .sub-menu li:last-child a,
+div.dosislite-main-menu ul ul li:last-child a{
+	border-bottom: none;
+}
+.dosislite-main-menu .menu-item-has-children > a:after,
+div.dosislite-main-menu .page_item_has_children > a:after{
+	content: "\f107";
+	font-family: 'Font Awesome 5 Free';
+	opacity: 0.5;
+	margin-left: 3px;
+	font-weight: 900;
+}
+.dosislite-main-menu .sub-menu .menu-item-has-children > a:after,
+div.dosislite-main-menu ul ul .page_item_has_children > a:after{
+	content: "\f105";
+}
+/*Nav sidebar*/
+.nav-siderbar,.dosislite-menu-touch{
+	visibility: hidden;
+	width: 330px;
+	background: #fff;
+	height: 100vh;
+	-webkit-transform: translateX(-330px);
+	-ms-transform: translateX(-330px);
+	-o-transform: translateX(-330px);
+	transform: translateX(-330px);
+	position: fixed;
+	top: 0;
+	opacity: 0;
+	-webkit-transition: all 0.5s ease 0s;
+	-o-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+	overflow-y: auto;
+	padding: 0 20px 50px;
+    z-index: 1;
+}
+.admin-bar .nav-siderbar,.admin-bar .dosislite-menu-touch{top: 32px;}
+@media(max-width: 782px){
+	.admin-bar .nav-siderbar,.admin-bar .dosislite-menu-touch{top: 46px;}
+}
+
+.open-navsidebar .nav-siderbar,
+.open-menutouch .dosislite-menu-touch{
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	-o-transform: translateX(0);
+	transform: translateX(0);
+	visibility: visible;
+	opacity: 1;
+    z-index: 100;
+}
+.body-overlay{
+    width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+    opacity: 0;
+    z-index: -1;
+}
+.open-navsidebar .body-overlay,.open-menutouch .body-overlay{
+    opacity: 1;
+	z-index: 20;	
+}
+.nav-siderbar .logo-navbar, .dosislite-menu-touch .logo-navbar{
+	padding: 15px 0;
+	text-align: center;
+	margin-bottom: 40px
+}
+.nav-siderbar .logo-navbar img, .dosislite-menu-touch .logo-navbar img{
+	max-width: 70%
+}
+.dosislite-main-menu{padding: 0}
+.main-menu-vertical .dosislite-main-menu li a{
+	line-height: 40px;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #eee;
+}
+.main-menu-vertical .dosislite-main-menu .sub-menu li a{
+	margin: 0;
+}
+.main-menu-vertical .dosislite-main-menu .menu-item-has-children > a .caret{
+	width: 25px;
+	text-align: right;
+}
+.main-menu-vertical .dosislite-main-menu .sub-menu{
+	display: none;
+}
+.menu-touch{
+    text-transform: uppercase;
+    font-family: 'Oswald';
+    color:#111;
+    line-height: 58px;
+    font-weight: bold;
+    font-size: 14px;
+}
+/*Nav Search*/
+.navbar-search{
+	text-align: right;
+	width: 100%;
+	display: block;
+	color: #111;
+	font-size: 14px;
+}
+.nav-search-hear{
+	position: absolute;
+	z-index: -1;
+	right: 0;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	padding: 5px 40px 5px 0;
+	width: 0;
+	-webkit-transition: all 0.5s ease 0;
+	-o-transition: all 0.5s ease 0;
+	transition: all 0.5s ease 0;
+	opacity: 0;
+	background: #fff;
+}
+.search-active .nav-search-hear{
+	opacity: 1;
+	width: 100%;
+	z-index: 20;
+}
+.nav-search-hear .searchform input[type="text"]{
+	border: none;
+	padding-left: 0
+}
+.nav-search-hear .close-search{
+	position: absolute;
+	width: 35px;
+	text-align: right;
+	font-size: 14px;
+	color: #111;
+	right: 0;
+	top: 50%;
+	--webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	cursor: pointer;
+}
+.searchform input[type="text"]{
+	width: 100%
+}
+/*----------------------------------------------------------------
+						MAINCONTAINER
+-----------------------------------------------------------------*/
+.dosislite-primary{
+	padding: 50px 0 70px;
+}
+.dosislite-title-section{
+	text-transform: uppercase;
+	border-bottom: 2px solid;
+	line-height: 30px;
+	letter-spacing: 1px;
+	font-size: 18px;
+}
+.dosislite-pagination{
+	margin-top: 20px;
+}
+.blog-list + .dosislite-pagination{margin-top: 70px}
+.dosislite-pagination .nav-links .page-numbers{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	text-align: center;
+	color: #aaa;
+	border: 1px solid;
+	margin-right: 8px;
+}
+.dosislite-pagination .nav-links .page-numbers:hover,
+.dosislite-pagination .nav-links .page-numbers.current{
+	background: #E66625;
+	color: #fff;
+}
+.dosislite-pagination .nav-links .page-numbers.dots{
+	background: transparent;
+	color: #aaa;
+	border: none;
+}
+.page-content .page-image{
+	margin-bottom: 40px;
+}
+.page-content .dosislite-social{
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 10px 0;
+}
+.page-excerpt ul{margin-bottom: 25px}
+.page-title{margin-bottom: 20px;}
+.wpcf7-form .wpcf7-form-control{margin-bottom: 30px;}
+/*----------------------------
+		Feature Post 
+------------------------------*/
+.featured-posts-slider{margin-bottom: 50px;}
+.item-post-feature{
+	position: relative;
+}
+.item-post-feature .bg-img{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: #f5f5f5;
+}
+.item-post-feature .bg-img:before{
+	content: "";
+	display: block;
+	width: 100%;
+	background: transparent;
+	padding-top: 51.67%
+}
+.item-post-feature .post-info{
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.item-post-feature .post-info .post-inner-info{
+	background: rgba(0,0,0,0.5);
+	color: #fff;
+	padding: 20px 30px;
+	text-align: center;
+	max-width: 480px;
+	margin: 0 auto;
+	opacity: 0;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	animation-delay: 0.4s;
+	-webkit-animation-delay: 0.4s;
+	-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+}
+.owl-item.active .item-post-feature .post-info .post-inner-info{
+	-webkit-animation-name: textslide;
+	animation-name: textslide;
+}
+@-webkit-keyframes textslide{
+	0%{
+		opacity:0;
+		-webkit-transform:translate3d(0,40px,0);
+		transform:translate3d(0,40px,0);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:none;transform:none
+	}
+}
+@-moz-keyframes textslide{
+	0%{
+		opacity:0;
+		-webkit-transform:translate3d(0,40px,0);
+		transform:translate3d(0,40px,0);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:none;transform:none
+	}
+}
+
+@-o-keyframes textslide{
+	0%{
+		opacity:0;
+		-webkit-transform:translate3d(0,40px,0);
+		transform:translate3d(0,40px,0);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:none;transform:none
+	}
+}
+
+@keyframes textslide{
+	0%{
+		opacity:0;
+		-webkit-transform:translate3d(0,40px,0);
+		transform:translate3d(0,40px,0);
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:none;transform:none
+	}
+}
+.post-title a{color: inherit;}
+.post-title a:hover{color: #E66625}
+.item-post-feature .post-info .post-title{
+	font-size: 20px;
+	margin-bottom: 10px;
+	color: #fff;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	animation-delay: 1s;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+}
+.item-post-feature .post-info .post-cats{
+	font-size: 12px;
+	margin-bottom: 10px;
+	color: #fff;
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	animation-delay: 0.8s;
+	-webkit-animation-delay: 0.8s;
+	-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+}
+.item-post-feature .post-cats a:after{
+	content: "";
+	width: 5px;
+	height: 5px;
+	display: inline-block;
+	border: 1px solid;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin: 0 10px;
+	vertical-align: middle;
+}
+.item-post-feature .post-cats a:last-child:after{display: none;}
+.item-post-feature .post-cats a{
+	color: inherit;
+	background: transparent;
+	padding: 0;
+}
+.item-post-feature .post-cats a:hover{color: #E66625;}
+.item-post-feature .post-info .post-meta{
+	-webkit-animation-duration: 0.7s;
+	animation-duration: 0.7s;
+	animation-delay: 1.2s;
+	-webkit-animation-delay: 1.2s;
+	-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+}
+.owl-item.active .item-post-feature .post-info .post-meta,
+.owl-item.active .item-post-feature .post-info .post-cats,
+.owl-item.active .item-post-feature .post-info .post-title{
+	-webkit-animation-name: textslide;
+	animation-name: textslide;
+}
+.post-meta{vertical-align: middle;}
+.post-meta > div{
+	display: inline-block;
+	font-size: 12px;
+}
+.post-meta > div:after{
+	content: "";
+	margin: 0 10px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 1px;
+	height: 8px;
+	border-left: 1px solid;
+}
+.post-meta > div:last-child:after{display: none;}
+.post-meta .ath-post{text-transform: capitalize;}
+.post-meta .ath-post span{text-transform: none;}
+/*----------------------------
+			Blog
+------------------------------*/
+.dosislite-blog .post{
+	margin-bottom: 45px;
+}
+.dosislite-blog .post .post-inner{
+	position: relative;
+}
+.dosislite-blog .post .readmore{margin-top: 25px;}
+.dosislite-blog .post-inner:after,
+.dosislite-blog .post-inner:before{
+	content: "";
+	display: table;
+	clear: both;
+}
+.post-cats a{
+	background: #E66625;
+	padding: 0 10px;
+	line-height: 20px;
+	color: #fff;
+}
+.dosislite-blog .post-cats{
+	margin-bottom: 15px;
+}
+.post-title{
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+.dosislite-blog .post-title{
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.dosislite-blog .post-meta{margin-bottom: 15px;}
+.post-excerpt p:last-child{margin-bottom: 0}
+.dosislite-blog .post .post-format{
+	position: relative;
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.dosislite-blog .post .post-format a{
+	display: block;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.dosislite-blog .post .post-format a:after{
+	content: "";
+	display: block;
+	width: 100%;
+	padding-top: 65%;
+}
+.dosislite-blog .post.format-audio .post-format a:before,
+.dosislite-blog .post.format-video .post-format a:before{
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	display: block;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border-radius: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	color: #fff;
+}
+.dosislite-blog .post.format-audio .post-format a:before{
+	content: "\f001";
+}
+.dosislite-blog .post.format-video .post-format a:before{
+	content: "\f04b";
+}
+.dosislite-blog .post .post-format:hover{
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+.blog-grid .post .post-cats{display: none;}
+.blog-grid .post-info{
+	text-align: center;
+	position: relative;
+	background: #fff;
+	padding: 40px 20px 30px;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.blog-grid .date-post{
+	width: 50px;
+	height: 50px;
+	display: block;
+	background: #fff;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	text-align: center;
+	position: absolute;
+	top: -25px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 2;
+	padding: 9px 0;
+	line-height: normal;
+}
+.blog-grid .date-post a{
+	color: inherit;
+	position: relative;
+	z-index: 5;
+}
+.blog-grid .date-post:after{
+	content: "";
+	width: 54px;
+	height: 27px;
+	position: absolute;
+	left: -2px;
+	bottom: -2px;
+	border-bottom-left-radius: 29px;
+	border-bottom-right-radius: 29px;
+	border:2px solid #E66625;
+	border-top: none;
+}
+.date-post span{display: block;}
+.post-format a{display: block;}
+/*Blog List*/
+.blog-list .post,
+.blog-list .page{
+	border-bottom: 1px solid #eee;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+}
+.blog-list .post:last-child{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.blog-list .post-format{
+	width: 380px;
+	margin-right: 30px;
+	float: left;
+}
+.blog-list .post-info{
+	overflow: hidden;
+}
+.blog-list .post-format a{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.blog-list .post-format a:after{
+	content: "";
+	width: 100%;
+	padding-top: 67%;
+	display: block;
+}
+/*Single Post*/
+.dosislite-single-post .post-heading{
+	margin-bottom: 45px;
+	text-align: center;
+}
+.dosislite-single-post .post-cats{margin-bottom: 10px;}
+.dosislite-single-post .post-title{
+	margin-bottom: 10px;
+}
+.dosislite-single-post .post-format{
+	margin-bottom: 50px;
+}
+.dosislite-single-post .post-content:after,
+.dosislite-single-post .post-content:before{
+	content: "";
+	display: table;
+	clear: both;
+}
+.post-related .post-format,.dosislite-single-post .post-related .post-format{
+	margin-bottom: 25px;
+}
+.dosislite-single-post .post-tags{margin-bottom: 15px;}
+.dosislite-single-post .post-related{
+	border-top: 1px solid #eee;
+	padding-top: 45px;
+	margin-top: 30px;
+}
+.dosislite-single-post .post-related .post-title{
+	font-size: 18px;
+	margin-bottom: 0;
+}
+/*Comment*/
+.dosislite-single-post .comments-area{
+	margin-top: 20px;
+	border-top: 1px solid #eee;
+	padding-top: 45px;
+}
+.comment-list {padding-left: 0}
+.comment-list > li{
+	list-style: none;
+}
+.comment-list .comment{
+	overflow: hidden;
+}
+.comment-body{
+	overflow: hidden;
+	margin-bottom: 35px;
+}
+.comment-body .comment-author{
+	float: left;
+	margin-right: 20px;
+	max-width: 85px;
+}
+.comment-body .comment-content{
+	overflow-y: hidden;
+}
+.comment-content .author-name {
+	font-size: 14px;
+	margin: 0;
+	display: inline-block;
+}
+.comment-content .date-comment {
+	display: inline-block;
+	color: #999;
+	margin-left: 15px;
+	font-size: 12px;
+}
+.reply {
+	float: right;
+	color: #111;
+}
+.reply a{color: inherit;}
+.date-comment a{color: inherit;}
+.comment-text {
+	margin-top: 10px;
+}
+.comment-text p:last-child{margin-bottom: 0}
+.comment-list ol.children{list-style: none;}
+
+.comment-respond{
+	margin-top: 30px;
+	padding-top: 45px;
+	border-top: 1px solid #eee;
+}
+.logged-in-as{margin-bottom: 10px;}
+.comment-form .input-form,
+.comment-form .textarea-form{
+	margin-bottom: 30px;
+	width: 100%;
+}
+.comment-form-cookies-consent input[type="checkbox"]{
+	margin-right: 10px;
+	vertical-align: middle;
+}
+/*--------------------------
+		Widget
+----------------------------*/
+.main-content .widget{margin-bottom: 0;}
+.widget{margin-bottom: 50px;}
+.widget-title {
+	text-transform: uppercase;
+	border-bottom: 2px solid;
+	line-height: 30px;
+	letter-spacing: 1px;
+	font-size: 18px;
+}
+.widget ul{
+	padding-left: 0
+}
+.widget ul ul,.widget ol ol,.widget ul ol,.widget ol ul{
+	padding-left: 20px;
+}
+.widget ul li{
+	list-style: none;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+.widget ul li:last-child{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+.widget ul li a{color: inherit;}
+.widget ul li a:hover{color: #E66625;}
+/*Widget Post*/
+.dosislite-post-widget .post-title{margin-bottom: 0}
+.dosislite-post-widget .date-post{font-size: 12px;margin-top: 5px;}
+.list-post-thumb .post-title{
+	font-size: 16px;
+}
+.dosislite-post-widget.list .list-post-thumb .post-item{
+	overflow: hidden;
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #eee;
+}
+.dosislite-post-widget.list .list-post-thumb .post-item:last-child{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0
+}
+.dosislite-post-widget.list .list-post-thumb .post-format{
+	float: left;
+	width: 120px;
+	margin-right: 20px;
+}
+.nav-siderbar .dosislite-post-widget.list .list-post-thumb .post-format{
+    width: 110px;
+}
+.dosislite-post-widget.list .list-post-thumb .post-info{
+    overflow:hidden;
+}
+.dosislite-post-widget.slide .post-item{
+	position: relative;
+}
+.dosislite-post-widget.slide .post-item:after{
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.1);
+	-webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+.dosislite-post-widget.slide .post-item:hover:after{
+	background: rgba(0,0,0,0.3);
+}
+.dosislite-post-widget.slide .post-item .post-format{
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.dosislite-post-widget.slide .post-item .post-format:before{
+	content: "";
+	display: block;
+	width: 100%;
+	padding-top: 115%;
+}
+.dosislite-post-widget.slide .post-item .post-info{
+	position: absolute;
+	padding: 0 20px;
+	width: 100%;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	text-align: center;
+	z-index: 2;
+}
+.dosislite-post-widget.slide .post-item .post-cats{
+	margin-bottom: 10px;
+}
+.dosislite-post-widget.slide .post-item .post-title{
+	color: #fff;
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+.dosislite-post-widget.slide .post-item .post-meta{color: #fff;}
+.dosislite-post-widget.grid .item-post-first{
+	position: relative;
+}
+.dosislite-post-widget.grid .item-post-first .post-format{margin-bottom: 0}
+.dosislite-post-widget.grid .item-post-first .post-info{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	padding: 15px 20px;
+	background: rgba(0,0,0,0.5);
+}
+.dosislite-post-widget.grid .item-post-first .post-title{
+	font-size: 16px;
+	color: #fff;
+}
+.dosislite-post-widget.grid .grid-post-thumb .row{
+	margin: 0 -10px;
+}
+.dosislite-post-widget.grid .grid-post-thumb .col-sm-6{
+	padding: 0 10px;
+	margin-top: 20px;
+}
+.dosislite-post-widget.grid .grid-post-thumb .post-format{margin-bottom: 10px;}
+.dosislite-post-widget.grid .grid-post-thumb .post-title{
+	font-size: 14px;
+}
+/*Instagram*/
+.instagram-pics{
+	overflow: hidden;
+	margin: 0 -5px;
+}
+.instagram-pics li{
+	float: left;
+	width: 50%;
+	padding: 5px;
+}
+.widget.null-instagram-feed ul li{
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+/*Tag Cloud*/
+.tagcloud a{
+	display: inline-block;
+	font-size: 14px!important;
+	border: 1px solid #eee;
+	padding: 5px 15px;
+	margin: 0 3px 10px;
+	color: inherit;
+}
+.tagcloud a:hover{
+	background: #E66625;
+	border-color: #E66625;
+	color: #fff;
+}
+/*Newsletter*/
+.dosislite-newsletter label{
+    margin-bottom: 30px;
+}
+.form-newsletter input[type="email"]{
+    width: calc(100% - 50px);
+    width: -webkit-calc(100% - 50px);
+    float:left;
+}
+.form-newsletter button{
+    font-size: 0;
+    color: transparent;
+    padding: 0;
+    position:relative;
+    width:50px;
+    line-height:50px;
+    background:#111;
+}
+.form-newsletter button:after{
+    content: "\f30b";
+    font-family:'Font Awesome 5 Free';
+    font-size:18px;
+    color:#fff;
+    font-weight:900;
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+.widget_nav_menu ul li{
+    font-family: 'Oswald';
+    border-bottom: none;
+    padding: 0;
+    margin:0;
+}
+.widget_nav_menu ul li a{
+    border-bottom: 1px solid #eee;
+    display: block;
+    line-height:40px;
+    color:#111;
+}
+.widget_nav_menu .menu > li > a{
+    text-transform: uppercase;
+}
+.widget_archive ul li,
+.widget_categories ul li.cat-item,
+.widget_pages ul li.page_item,
+.widget_meta ul li,
+.widget_recent_entries ul li{
+    text-transform:uppercase;
+    font-family:'Oswald';
+    font-size: 14px;
+    color: #111;
+} 
+/*Nav sidebar*/
+.nav-siderbar .widget{
+    margin-top: 50px;
+    font-size:14px;
+}
+
+/*-------------------------------
+		FOOTER
+-------------------------------*/
+.logo-footer .text-logo {
+	color: #fff;
+	margin: 0;
+}
+.footer-ins .widget{margin-bottom: 0;}
+.footer-ins .instagram-pics{margin: 0}
+.footer-ins .instagram-pics li{
+	width: 16.6667%;
+	padding: 0;
+}
+.main-footer{
+	background: #111;
+	text-align: center;
+	padding: 70px 0;
+    color: #888;
+}
+.logo-footer img {
+	max-width: 260px;
+	display: block;
+	margin: 0 auto
+}
+.copyright{font-size: 14px;margin-top: 30px;}
+.share-title {
+	text-transform: uppercase;
+	margin-right: 10px;
+	font-family: Oswald;
+	color: #111;
+}
+.dosislite-social a{
+	display: inline-block;
+	color: inherit;
+	color: #111;
+	margin: 0 5px;
+}
+.dosislite-social a:hover{
+	color: #E66625;
+}
+.footer-social{margin-top: 15px;}
+.footer-social a{
+	margin: 0 10px;
+	font-size: 16px;
+	color: inherit;
+}
+.footer-social a:hover{
+	color: #fff;
+}
+/*-----------------------------
+		RESPONSIVE
+-----------------------------*/
+@media(min-width: 1200px){
+	.container {
+		max-width: 1170px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199.98px){}
+@media(max-width: 991.98px){
+	.sidebar{
+		margin-top: 50px;
+	}
+	.dosislite-post-widget.slide .post-item .post-format::before{padding-top: 60%}
+	.nav-main.main-menu-horizontal{display: none;}
+	.header-content.no_has_navbar .navbar-main{display: none;}
+	.navbar-search,.menu-touch{
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	.navbar-search{width: 25px;}
+	.nav-search-hear .searchform input[type="text"]{padding: 8px 15px;}
+	.header-content{padding: 10px 0}
+	.no_has_navbar.header-content .navbar-col.navbar-end{
+		justify-content: space-between;
+		width: 100%;
+	}
+}
+@media (min-width: 768px) and (max-width: 991.98px){
+	.dosislite-logo{padding: 35px;}
+	.dosislite-logo img{max-width: 230px}
+	.items-slide .item-post-feature.item-first{
+		width: 100%;
+		border-right: none;
+		border-bottom: 10px solid transparent;
+	}
+	.items-slide .item-post-feature{
+		width: 50%;
+		border-bottom: none;
+		border-right: 5px solid transparent;
+	}
+	.items-slide .item-post-feature:last-child{
+		border-top: none;
+		border-right: none;
+		border-left: 5px solid transparent;
+	}
+	.item-post-feature .bg-img::before{padding-top: 64%}
+}
+@media(max-width: 767.98px){
+	.dosislite-logo img{max-width: 160px}
+	.dosislite-logo{padding: 25px 0}
+	.items-slide .item-post-feature.item-first .post-title{font-size: 18px;}
+	.items-slide .item-post-feature.item-first{
+		width: 100%;
+		border-right: none;
+		border-bottom: 10px solid transparent;
+	}
+	.items-slide .item-post-feature{
+		width: 100%;
+		border-bottom: 10px solid transparent;
+	}
+	.items-slide .item-post-feature:last-child{
+		border-top: none;
+	}
+}
+@media (min-width: 576px) and (max-width: 767.98px){}
+@media (max-width: 575.98px) {
+    .nav-siderbar,.dosislite-menu-touch{width:280px;}
+    .comment-body .comment-author{width: 70px;margin-right: 15px}
+    .comment-content .date-comment{display: block;margin-left: 0}
+    .reply{float: none;}
+}

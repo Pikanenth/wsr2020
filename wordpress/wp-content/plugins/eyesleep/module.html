@@ -1,0 +1,137 @@
+<!-- Окно -->
+<div id="sleeping_box" style="display: none">
+    
+    <!-- Кнопка закрытия окна -->
+    <button style="background: #b61919;position: absolute;left: -30px;width: 60px;border-radius: 50%;height: 60px;z-index: 9999999999999999;padding: 0;color: white;box-shadow: 2px 2px rgba(0, 0, 0, 0.23);font-weight: bold;font-size: 25px;text-shadow: 4px 4px rgba(0, 0, 0, 0.14);" onclick="jQuery('#sleeping_box').fadeOut();jQuery('.sleeping_box_button_active').fadeIn();">X</button>
+    
+    <!-- Включение, отключение изображений -->
+    <div class="images" style="margin-top: 50px;padding: 20px;">
+        <label>Изображения</label>
+        <!-- Кнопки -->
+        <div style="display: flex;">
+            <button style="width: 50%;background: #00b900;margin-right: 10px;" onclick="sleeping.images(true)">ВКЛ</button>
+            <button style="width: 50%;background: #b61919;" onclick="sleeping.images(false)">ВЫКЛ</button>
+        </div>
+    </div>
+
+    <!-- Смена шрифта -->
+    <div class="font">
+        <label>Шрифт</label>
+        <!-- Кнопки -->
+        <div style="display: flex;padding: 20px;">
+            <button style="width: 33%;font-weight: bold;font-size: 20px;margin-right: 5px;" onclick="sleeping.fonts(20)">А</button>
+            <button style="width: 33%;font-weight: bold;font-size: 16px;margin-right: 5px;" onclick="sleeping.fonts(16)">А</button>
+            <button style="width: 33%;font-weight: bold;font-size: 10px;" onclick="sleeping.fonts(10)">А</button>
+        </div>
+    </div>
+
+    <!-- Смена строчного интервала -->
+    <div class="font">
+        <label>Строчный интервал</label>
+        <!-- Кнопки -->
+        <div style="display: flex;padding: 20px;">
+            <button style="width: 33%;font-weight: bold;font-size: 20px;margin-right: 5px;" onclick="sleeping.str(5)">1</button>
+            <button style="width: 33%;font-weight: bold;font-size: 20px;margin-right: 5px;" onclick="sleeping.str(10)">2</button>
+            <button style="width: 33%;font-weight: bold;font-size: 20px;" onclick="sleeping.str(15)">3</button>
+        </div>
+    </div>
+
+    <!-- Смена межстрочного интервала -->
+    <div class="font">
+        <label>Межстрочный интервал</label>
+        <!-- Кнопки -->
+        <div style="display: flex;padding: 20px;">
+            <button style="width: 33%;font-weight: bold;font-size: 20px;margin-right: 5px;" onclick="sleeping.mstr(50)">1</button>
+            <button style="width: 33%;font-weight: bold;font-size: 20px;margin-right: 5px;" onclick="sleeping.mstr(30)">2</button>
+            <button style="width: 33%;font-weight: bold;font-size: 20px;" onclick="sleeping.mstr(15)">3</button>
+        </div>
+    </div>
+
+    <!-- Смена цветовой палитры -->
+    <div class="palitre">
+        <label>Цветовая схема</label>
+        <!-- Кнопки -->
+        <div style="display: flex;padding: 20px;">
+            <button style="width: 50%;background: #00b900;margin-right: 10px;" onclick="sleeping.contrast(false)">Стандартная</button>
+            <button style="width: 50%;background: #000000;" onclick="sleeping.contrast(true)">Черно-белая</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Стили -->
+<style>
+
+    #sleeping_box {
+		position: fixed;
+		right: 0;
+		min-width: 200px;
+		z-index: 9999999;
+		top: 0;
+		background: linear-gradient(to top, #222222, rgba(0, 0, 0, 0.37));
+		bottom: 0;
+		padding: 10px;
+		box-shadow: -10px 18px 20px rgba(0, 0, 0, 0.30196078431372547);
+    }
+
+    #sleeping_box * {
+        font-weight: 400;
+    }
+
+    #sleeping_box label {
+        text-align: center;
+        text-shadow: 4px 4px rgba(0, 0, 0, 0.14);
+    }
+
+    #sleeping_box button {
+        display: block;
+        width: 100%;
+        z-index: 999999999;
+        text-shadow: 4px 4px rgba(0, 0, 0, 0.14);
+        color: white;
+        line-height: 1;
+        margin-bottom: 10px;
+        box-shadow: 2px 2px rgba(0, 0, 0, 0.23);
+        font-size: 15px;
+        background: #383838;
+    }
+
+    #sleeping_box button:hover {
+        transform: scale(1.2);
+        transition: 300ms ease;
+        background: #00b900;
+        border-radius: 500px;
+    }
+
+</style>
+
+<!-- Скрипты -->
+<script>
+
+    // Добавляем кнопку в шапку.
+    jQuery('#top-menu').prepend(`<button class="sleeping_box_button_active" onclick="jQuery('#sleeping_box').fadeIn();jQuery('.sleeping_box_button_active').fadeOut();" style="font-weight: 600; font-size: 12px; display: inline-block;float: right;margin-top: 55px;">Режим для слабовидящих</button>`)
+
+    var sleeping = {};
+
+    // Включение, отключение изображений.
+    sleeping.images = (img) => {
+        if(img) jQuery("body img").fadeIn();
+        else jQuery("body img").fadeOut();
+    };
+
+    // Изменение шрифтов.
+    sleeping.fonts = (px) => jQuery("#main *").css({ "font-size": px + "px" });
+
+    // Изменение строчного интервала
+    sleeping.str = (px) => jQuery("#main *").attr("style", "letter-spacing: "+ px + "px !important");
+
+    // Изменение межстрочного интервала
+    sleeping.mstr = (px) => jQuery("#main *").attr("style", "line-height: "+ px + "px !important");
+
+    // Режим чернобелый 
+    sleeping.contrast = (grayscale) => {
+        if(grayscale) jQuery('html').css({ "filter": "grayscale(1)" });
+        else jQuery('html').css({ "filter": "grayscale(0)" });
+    };
+    
+</script>

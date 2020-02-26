@@ -1,0 +1,63 @@
+<label style="text-align: center;font-size: 20px;margin-bottom: 30px;">Калькулятор услуг</label>
+<!-- форма -->
+<div class="form" style="padding: 20px;background: #222222;border-radius: 4px;margin-top: 10px;box-shadow: 0px 2px 18px rgba(0, 0, 0, 0.30196078431372547);">
+    
+    <!-- Инструктор -->
+    <label style="font-weight: 200;">Инструктор</label>
+    <select name="Инструктор" style="display: block;width: 100%;margin-bottom: 20px;padding: 10px;">
+        <option value="500">Мастер спорта</option>
+        <option value="300">Заслуженный тренер</option>
+    </select>
+
+    <!-- Категория -->
+    <label style="font-weight: 200;">Категория</label>
+    <select name="Категория" style="display: block;width: 100%;margin-bottom: 20px;padding: 10px;">
+        <option value="1">Школьный</option>
+        <option value="1.2">Групповой</option>
+        <option value="1.8">Индивидуальный</option>
+        <option value="1.5">Йога</option>
+    </select>
+
+    <!-- Филиал -->
+    <label style="font-weight: 200;">Филиал</label>
+    <select name="Филиал" style="display: block;width: 100%;margin-bottom: 20px;padding: 10px;">
+        <option value="1">На Ленина</option>
+        <option value="1.2">На Советской</option>
+        <option value="1.8">На Гоголя</option>
+        <option value="0.7">На Куйбышева</option>
+    </select>
+
+    <!-- Интенсивность -->
+    <label style="font-weight: 200;">Интенсивность</label>
+    <select name="Интенсивность" style="display: block;width: 100%;padding: 10px;">
+        <option value="1">1 раз в неделю</option>
+        <option value="2">2 раза в неделю</option>
+        <option value="3">3 раза в неделю</option>
+    </select>
+
+    <!-- Вывод стоимости -->
+    <h2 style="text-align: center;">Стоимость составляет <span class="calculator-result"></span> рублей.</h2>
+
+    <!-- Кнопка рассчета стоимости -->
+    <button type="submit" onclick="calculator();" style="font-weight: 200;margin: 0 auto;display: block;">Рассчитать стоимость</button>
+
+</div>
+
+<!-- Функционал -->
+<script>
+
+    $ = jQuery; // Событие на смену элемента.
+    $("select").change(() => calculator()); // При смене значений, запускаем калькулятор
+
+    // Калькулятор инициализация
+    var calculator = () => {
+        let a = parseFloat($('[name="Инструктор"]').val()).toFixed(2), // Получаем инструктора 
+        b = parseFloat($('[name="Категория"]').val()).toFixed(2), // Получаем категорию
+        c = parseFloat($('[name="Филиал"]').val()).toFixed(2), // Получаем Филиал
+        d = parseFloat($('[name="Интенсивность"]').val()).toFixed(2); // Получаем интенсивность
+        $('.calculator-result').text(parseFloat(a * b * c * d).toFixed(2)); // Выводим результат учитывая формулу. 
+    };
+
+    calculator(); // Запускаем калькулятор.
+
+</script>
